@@ -15,6 +15,7 @@ import models
 
 @get('/')
 def display_home():
+    auth_required()
     return static_file('index.html', root='./')
 
 def auth_required():
@@ -69,6 +70,16 @@ def create_clan_member(clan_key, member_name):
     )
     member.put()
     return models.clan_member_to_json(member)
+
+
+@get('/clans/')
+def get_all_clans():
+    from lib.bottle import response
+    from json import dumps
+    clans = models.Clan.query().fetch()
+    to_return = [models.clan_to_json(clan) for clan in clans]
+    response.content_type = 'application/json'
+    return dumps(to_return)
 
 
 @get('/clan/:clan_key/members/')
