@@ -76,7 +76,7 @@ def create_clan_member(clan_key, member_name):
 def get_all_clans():
     from lib.bottle import response
     from json import dumps
-    clans = models.Clan.query().fetch()
+    clans = models.Clan.query().order(models.Clan.created).fetch()
     to_return = [models.clan_to_json(clan) for clan in clans]
     response.content_type = 'application/json'
     return dumps(to_return)

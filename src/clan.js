@@ -53,6 +53,9 @@ var ClanForm = React.createClass({
     }
 });
 
+var Well = ReactBootstrap.Well;
+
+
 var ClanBox = React.createClass({
     getInitialState: function() {
         return {clans: []};
@@ -92,11 +95,13 @@ var ClanBox = React.createClass({
     },
     render: function() {
         return (
-            <div className="clanBox">
-                <ClanList clans={this.state.clans} />
-                <ClanForm onClanSubmit={this.handleClanSubmit} />
-            </div>
-        )
+            <Well>
+                <div className="clanBox">
+                    <ClanList clans={this.state.clans} />
+                    <ClanForm onClanSubmit={this.handleClanSubmit} />
+                </div>
+            </Well>
+        );
     }
 });
 
@@ -110,3 +115,28 @@ React.renderComponent(
     <ClanBox pollInterval={2000} />,
     document.getElementById('content')
 );
+
+
+var Navbar = ReactBootstrap.Navbar;
+var Nav = ReactBootstrap.Nav;
+var NavItem = ReactBootstrap.NavItem;
+var DropdownButton = ReactBootstrap.DropdownButton;
+var MenuItem = ReactBootstrap.MenuItem;
+
+var navbarInstance = (
+    <Navbar>
+      <Nav>
+        <NavItem key={1} href="#">Link</NavItem>
+        <NavItem key={2} href="#">Link</NavItem>
+        <DropdownButton key={3} title="Dropdown">
+          <MenuItem key="1">Action</MenuItem>
+          <MenuItem key="2">Another action</MenuItem>
+          <MenuItem key="3">Something else here</MenuItem>
+          <MenuItem divider />
+          <MenuItem key="4">Separated link</MenuItem>
+        </DropdownButton>
+      </Nav>
+    </Navbar>
+  );
+
+React.renderComponent(navbarInstance,  document.getElementById('tab'));

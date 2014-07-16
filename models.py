@@ -3,6 +3,7 @@ from google.appengine.ext import ndb
 class Clan(ndb.Model):
     admins = ndb.UserProperty(repeated=True)
     name = ndb.StringProperty()
+    created = ndb.DateTimeProperty(auto_now_add=True)
 
 
 def clan_to_json(clan):
