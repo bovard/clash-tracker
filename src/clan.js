@@ -1,4 +1,12 @@
 /** @jsx React.DOM */
+var React = require('react');
+
+var Navbar = require('react-bootstrap').Navbar;
+var Nav = require('react-bootstrap').Nav;
+var NavItem = require('react-bootstrap').NavItem;
+var DropdownButton = require('react-bootstrap').DropdownButton;
+var MenuItem = require('react-bootstrap').MenuItem;
+var Well = require('react-bootstrap').Well;
 
 var Clan = React.createClass({
     render: function() {
@@ -53,7 +61,6 @@ var ClanForm = React.createClass({
     }
 });
 
-var Well = ReactBootstrap.Well;
 
 
 var ClanBox = React.createClass({
@@ -116,12 +123,6 @@ React.renderComponent(
     document.getElementById('content')
 );
 
-
-var Navbar = ReactBootstrap.Navbar;
-var Nav = ReactBootstrap.Nav;
-var NavItem = ReactBootstrap.NavItem;
-var DropdownButton = ReactBootstrap.DropdownButton;
-var MenuItem = ReactBootstrap.MenuItem;
 
 var navbarInstance = (
     <Navbar>
