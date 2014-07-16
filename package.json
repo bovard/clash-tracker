@@ -35,6 +35,7 @@
     "envify": "~1.2.1",
     "react": "~0.10.0",
     "react-bootstrap": "~0.11.0",
-    "reactify": "~0.13.1"
+    "reactify": "~0.13.1",
+    "backbone": "~1.1.2"
   }
 }

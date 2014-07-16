@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     reactify = require('reactify');
 
 gulp.task('browserify', function() {
-    return gulp.src('src/clan.js')
+    return gulp.src('src/main.js')
         .pipe(browserify({
             debug: true,
             transform: [reactify],

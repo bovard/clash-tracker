@@ -82,11 +82,9 @@ var ClanBox = React.createClass({
     },
     componentWillMount: function() {
         this.loadClansFromServer();
-        setInterval(this.loadClansFromServer, this.props.pollInterval);
     },
     handleClanSubmit: function(clan) {
         var url = '/clan/' + clan.name;
-        console.log("posting to ", url);
         $.ajax({
             url: url,
             dataType: 'json',
@@ -102,42 +100,12 @@ var ClanBox = React.createClass({
     },
     render: function() {
         return (
-            <Well>
-                <div className="clanBox">
-                    <ClanList clans={this.state.clans} />
-                    <ClanForm onClanSubmit={this.handleClanSubmit} />
-                </div>
-            </Well>
+            <div className="clanBox">
+                <ClanList clans={this.state.clans} />
+                <ClanForm onClanSubmit={this.handleClanSubmit} />
+            </div>
         );
     }
 });
 
-var clans = [
-    {name: 'A clan', admins: ['a@b.com', 'c@d.com']},
-    {name: 'B clan', admins: ['e@f.com', 'c@d.com']},
-    {name: 'C clan', admins: ['e@f.com']}
-];
-
-React.renderComponent(
-    <ClanBox pollInterval={2000} />,
-    document.getElementById('content')
-);
-
-
-var navbarInstance = (
-    <Navbar>
-      <Nav>
-        <NavItem key={1} href="#">Link</NavItem>
-        <NavItem key={2} href="#">Link</NavItem>
-        <DropdownButton key={3} title="Dropdown">
-          <MenuItem key="1">Action</MenuItem>
-          <MenuItem key="2">Another action</MenuItem>
-          <MenuItem key="3">Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem key="4">Separated link</MenuItem>
-        </DropdownButton>
-      </Nav>
-    </Navbar>
-  );
-
-React.renderComponent(navbarInstance,  document.getElementById('tab'));
+module.exports = ClanBox;
