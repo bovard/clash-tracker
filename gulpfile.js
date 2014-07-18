@@ -1,14 +1,16 @@
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
-    reactify = require('reactify');
+    reactify = require('reactify'),
+    rename = require('gulp-rename');
 
 gulp.task('browserify', function() {
-    return gulp.src('src/main.js')
+    return gulp.src('src/main.jsx')
         .pipe(browserify({
             debug: true,
             transform: [reactify],
             extensions: [".html",".jsx"]
         }).on('error', function(e){ console.warn(e); }))
+        .pipe(rename('main.js'))
         .pipe(gulp.dest('build/'));
 });
 
