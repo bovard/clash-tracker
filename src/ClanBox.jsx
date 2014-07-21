@@ -1,13 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
 
-var Navbar = require('react-bootstrap').Navbar;
-var Nav = require('react-bootstrap').Nav;
-var NavItem = require('react-bootstrap').NavItem;
-var DropdownButton = require('react-bootstrap').DropdownButton;
-var MenuItem = require('react-bootstrap').MenuItem;
-var Well = require('react-bootstrap').Well;
-
 var Clan = React.createClass({
     render: function() {
         return (
@@ -29,7 +22,7 @@ var ClanList = React.createClass({
             return (
                 <Clan name={clan.name} admins={clan.admins}>
                 </Clan>
-                );
+            );
         });
         return (
             <div className="clanList">
@@ -100,9 +93,12 @@ var ClanBox = React.createClass({
     },
     render: function() {
         return (
-            <div className="clanBox">
-                <ClanList clans={this.state.clans} />
-                <ClanForm onClanSubmit={this.handleClanSubmit} />
+            <div>
+                <h3>Create a new clan!</h3>
+                <div className="clanBox">
+                    <ClanList clans={this.state.clans} />
+                    <ClanForm onClanSubmit={this.handleClanSubmit} />
+                </div>
             </div>
         );
     }

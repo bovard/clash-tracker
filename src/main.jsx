@@ -13,6 +13,7 @@ var PageHeader = require('react-bootstrap').PageHeader;
 
 
 var ClanBox = require('./ClanBox');
+var Members = require('./Members');
 
 
 var App = React.createClass({
@@ -36,7 +37,11 @@ var App = React.createClass({
                             <ClanBox />
                         </Well>
                     </TabPane>
-                    <TabPane key={2} tab="Tab 2">TabPane 2 content</TabPane>
+                    <TabPane key={2} tab="Members">
+                        <Well>
+                            <Members />
+                        </Well>
+                    </TabPane>
                 </TabbedArea>
             </div>
         );

@@ -16,6 +16,11 @@ indexes:
   - name: run
     direction: desc
 
+- kind: Clan
+  properties:
+  - name: admins
+  - name: created
+
 - kind: Comment
   ancestor: yes
   properties:

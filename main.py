@@ -81,6 +81,17 @@ def get_all_clans():
     response.content_type = 'application/json'
     return dumps(to_return)
 
+@get('/my_clans/')
+def get_my_clans():
+    from lib.bottle import response
+    from json import dumps
+    user = users.get_current_user()
+    clans = models.Clan.query().filter(models.Clan.admins.IN([user])).order(models.Clan.created).fetch()
+    to_return = [models.clan_to_json(clan) for clan in clans]
+    response.content_type = 'application/json'
+    return dumps(to_return)
+
+
 
 @get('/clan/:clan_key/members/')
 def get_clan_members(clan_key):
