@@ -15,7 +15,7 @@ var SelectTest = React.createClass({
         this.loadClansFromServer();
     },
     loadClansFromServer: function() {
-        var url = urls.myClans
+        var url = urls.myClans;
         $.ajax({
             url: url,
             dataType: 'json',
@@ -30,7 +30,7 @@ var SelectTest = React.createClass({
     render: function() {
         var options = [<option value="noClan">You don't have a clan!</option>];
         if (this.state.clans) {
-            var options = [];
+            options = [];
             for (var i = 0; i < this.state.clans.length; i++) {
                 var clan = this.state.clans[i];
                 options.push(<option value={clan.key}>{clan.name}</option>)

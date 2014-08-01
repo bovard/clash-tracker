@@ -10,13 +10,15 @@ from google.appengine.ext import ndb
 from lib import bottle
 from lib.bottle import abort, post, get, request, error, debug, redirect, response, static_file
 
-import models
+import routes
+import test
 
-
+"""
 @get('/')
 def display_home():
     auth_required()
     return static_file('index.html', root='./')
+"""
 
 def auth_required():
     user = users.get_current_user()
